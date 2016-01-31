@@ -1,0 +1,13 @@
+{
+  "name": "resistor-calculator",
+  "description": "Simple calculator for the color codes of resistors",
+  "authors": [
+    "Dennis Schroer <dev@dennisschroer.nl>"
+  ],
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "angular": "~1",
+    "angular-material": "~1"
+  }
+}

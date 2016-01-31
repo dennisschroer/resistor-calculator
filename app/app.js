@@ -1,0 +1,1 @@
+angular.module('resistor-calculator', ['ngMaterial']);

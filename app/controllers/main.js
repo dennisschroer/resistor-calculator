@@ -136,10 +136,10 @@ angular.module("resistor-calculator").controller("MainController", ["$scope", "$
     $scope.numberOfBands = 4;
 
     $scope.resistor = {
-        first: 0,
+        first: 1,
         second: 0,
         third: 0,
-        multiplier: 1,
+        multiplier: 100,
         tolerance: 5
     };
 }]);

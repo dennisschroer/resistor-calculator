@@ -1,4 +1,4 @@
-angular.module("resistor-calculator").controller("MainController", ["$scope", "$sce", function ($scope, $sce) {
+angular.module("resistorCalculator").controller("MainController", ["$scope", "$sce", function ($scope, $sce) {
     $scope.resistance = function(){
         if($scope.numberOfBands == 4){
             return (parseInt($scope.resistor.first)*10 + parseInt($scope.resistor.second)) * parseFloat($scope.resistor.multiplier);
@@ -69,23 +69,23 @@ angular.module("resistor-calculator").controller("MainController", ["$scope", "$
         },
         orange: {
             value: 1000,
-            label: $sce.trustAsHtml("1000 &#8486;")
+            label: $sce.trustAsHtml("1k &#8486;")
         },
         yellow: {
             value: 10000,
-            label: $sce.trustAsHtml("10000 &#8486;")
+            label: $sce.trustAsHtml("10k &#8486;")
         },
         green: {
             value: 100000,
-            label: $sce.trustAsHtml("100000 &#8486;")
+            label: $sce.trustAsHtml("100k &#8486;")
         },
         blue: {
             value: 1000000,
-            label: $sce.trustAsHtml("1000000 &#8486;")
+            label: $sce.trustAsHtml("1M &#8486;")
         },
         violet: {
             value: 10000000,
-            label: $sce.trustAsHtml("10000000 &#8486;")
+            label: $sce.trustAsHtml("10M &#8486;")
         },
         gold: {
             value: 0.1,

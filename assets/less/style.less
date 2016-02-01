@@ -1,0 +1,70 @@
+@import "labels.less";
+
+@resistor-black:    @gray-base;
+@resistor-brown:    brown;
+@resistor-red:      red;
+@resistor-orange:   orange;
+@resistor-yellow:   yellow;
+@resistor-green:    green;
+@resistor-blue:     blue;
+@resistor-violet:   violet;
+@resistor-grey:     grey;
+@resistor-white:    white;
+@resistor-gold:     gold;
+@resistor-silver:   silver;
+
+.resistor-color-label {
+  &:extend(.label);
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.resistor-color-dark-color{
+  color: @label-color-dark;
+  a& {
+    &:hover,
+    &:focus {
+      color: @label-link-hover-color-dark;
+    }
+  }
+}
+
+.resistor-color-label.black {
+  .label-variant(@resistor-black);
+}
+.resistor-color-label.brown {
+  .label-variant(@resistor-brown);
+}
+.resistor-color-label.red {
+  .label-variant(@resistor-red);
+}
+.resistor-color-label.orange {
+  .label-variant(@resistor-orange);
+  .resistor-color-dark-color;
+}
+.resistor-color-label.yellow {
+  .label-variant(@resistor-yellow);
+  .resistor-color-dark-color;
+}
+.resistor-color-label.green {
+  .label-variant(@resistor-green);
+}
+.resistor-color-label.blue {
+  .label-variant(@resistor-blue);
+}
+.resistor-color-label.violet {
+  .label-variant(@resistor-violet);
+}
+.resistor-color-label.grey {
+  .label-variant(@resistor-grey);
+}
+.resistor-color-label.white {
+  .label-variant(@resistor-white);
+  .resistor-color-dark-color;
+}
+.resistor-color-label.gold {
+  .label-variant(@resistor-gold);
+}
+.resistor-color-label.silver {
+  .label-variant(@resistor-silver);
+}

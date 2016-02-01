@@ -29,13 +29,30 @@ module.exports = function (grunt) {
                     "assets/css/style.css": "assets/less/style.less"
                 }
             }
+        },
+        replace: {
+            // Build index.html
+            buildHTML: {
+                options: {
+                    patterns: [
+                        {
+                            match: 'version',
+                            replacement: '<%= pkg.version %>'
+                        }
+                    ]
+                },
+                files: [
+                    {flatten: true, src: 'index.tmpl.html', dest: 'index.html'}
+                ]
+            }
         }
     });
     grunt.loadNpmTasks("grunt-contrib-less");
     grunt.loadNpmTasks("grunt-contrib-jshint");
+    grunt.loadNpmTasks("grunt-replace");
 
     // Default task(s).
     grunt.registerTask("default", ["dev"]);
     grunt.registerTask("dev", ["jshint", "build"]);
-    grunt.registerTask("build", ["less"]);
+    grunt.registerTask("build", ["less", "replace"]);
 };

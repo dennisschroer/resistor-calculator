@@ -1,13 +1,13 @@
 @import "labels.less";
 
 @resistor-black:    @gray-base;
-@resistor-brown:    brown;
+@resistor-brown:    #966F33;
 @resistor-red:      red;
 @resistor-orange:   orange;
 @resistor-yellow:   yellow;
-@resistor-green:    green;
+@resistor-green:    #4CC417;
 @resistor-blue:     blue;
-@resistor-violet:   violet;
+@resistor-violet:   #E238EC;
 @resistor-grey:     grey;
 @resistor-white:    white;
 @resistor-gold:     gold;
@@ -15,8 +15,8 @@
 
 .resistor-color-label {
   &:extend(.label);
-  padding-left: 40px;
-  padding-right: 40px;
+  display: inline-block;
+  width: 80px;
 }
 
 .resistor-color-dark-color{
@@ -64,7 +64,9 @@
 }
 .resistor-color-label.gold {
   .label-variant(@resistor-gold);
+  .resistor-color-dark-color;
 }
 .resistor-color-label.silver {
   .label-variant(@resistor-silver);
+  .resistor-color-dark-color;
 }

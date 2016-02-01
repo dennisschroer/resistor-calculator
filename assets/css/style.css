@@ -67,8 +67,10 @@ a.label:focus {
   background-color: #c9302c;
 }
 .resistor-color-label {
-  padding-left: 40px;
-  padding-right: 40px;
+  display: inline-block;
+  width: 80px;
+  /*padding-left: 40px;
+  padding-right: 40px;*/
 }
 .resistor-color-dark-color {
   color: #555555;
@@ -85,11 +87,11 @@ a.resistor-color-dark-color:focus {
   background-color: #000000;
 }
 .resistor-color-label.brown {
-  background-color: brown;
+  background-color: #966F33;
 }
 .resistor-color-label.brown[href]:hover,
 .resistor-color-label.brown[href]:focus {
-  background-color: #7c2020;
+  background-color: #705326;
 }
 .resistor-color-label.red {
   background-color: red;
@@ -123,11 +125,11 @@ a.resistor-color-label.yellow:focus {
   color: #555555;
 }
 .resistor-color-label.green {
-  background-color: green;
+  background-color: #4CC417;
 }
 .resistor-color-label.green[href]:hover,
 .resistor-color-label.green[href]:focus {
-  background-color: #004d00;
+  background-color: #3a9612;
 }
 .resistor-color-label.blue {
   background-color: blue;
@@ -137,11 +139,11 @@ a.resistor-color-label.yellow:focus {
   background-color: #0000cc;
 }
 .resistor-color-label.violet {
-  background-color: violet;
+  background-color: #E238EC;
 }
 .resistor-color-label.violet[href]:hover,
 .resistor-color-label.violet[href]:focus {
-  background-color: #e855e8;
+  background-color: #d115dc;
 }
 .resistor-color-label.grey {
   background-color: grey;
@@ -164,15 +166,25 @@ a.resistor-color-label.white:focus {
 }
 .resistor-color-label.gold {
   background-color: gold;
+  color: #555555;
 }
 .resistor-color-label.gold[href]:hover,
 .resistor-color-label.gold[href]:focus {
   background-color: #ccac00;
 }
+a.resistor-color-label.gold:hover,
+a.resistor-color-label.gold:focus {
+  color: #555555;
+}
 .resistor-color-label.silver {
   background-color: silver;
+  color: #555555;
 }
 .resistor-color-label.silver[href]:hover,
 .resistor-color-label.silver[href]:focus {
   background-color: #a7a7a7;
+}
+a.resistor-color-label.silver:hover,
+a.resistor-color-label.silver:focus {
+  color: #555555;
 }

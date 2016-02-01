@@ -25,7 +25,7 @@
     </md-toolbar>
     <md-content layout="column" layout-fill layout-padding flex id="content">
         <div layout="row">
-
+            <h1>Resistance: {{resistance()}} &#8486;</h1>
         </div>
         <div layout="row">
             <md-input-container class="md-block" flex>
@@ -39,33 +39,33 @@
         </div>
         <div layout="row">
             <div flex>
-                <p>Selected Value: <span class="radioValue">{{ resistor.first }}</span></p>
+                <p>First band</p>
                 <md-radio-group ng-model="resistor.first">
-                    <md-radio-button ng-repeat="(color, value) in bands" value="{{value}}"><span class="resistor-color-label" ng-class="color">{{value}}</span></md-radio-button>
+                    <md-radio-button ng-repeat="(color, obj) in bands" value="{{obj.value}}"><span class="resistor-color-label" ng-class="color">{{obj.label}}</span></md-radio-button>
                 </md-radio-group>
             </div>
             <div flex>
-                <p>Selected Value: <span class="radioValue">{{ resistor.first }}</span></p>
-                <md-radio-group ng-model="resistor.first">
-                    <md-radio-button ng-repeat="(color, value) in bands" value="{{value}}"><span class="resistor-color-label" ng-class="color">{{value}}</span></md-radio-button>
-                </md-radio-group>
-            </div>
-            <div flex>
-                <p>Selected Value: <span class="radioValue">{{ resistor.first }}</span></p>
-                <md-radio-group ng-model="resistor.first">
-                    <md-radio-button ng-repeat="(color, value) in bands" value="{{value}}"><span class="resistor-color-label" ng-class="color">{{value}}</span></md-radio-button>
+                <p>Second band</p>
+                <md-radio-group ng-model="resistor.second">
+                    <md-radio-button ng-repeat="(color, obj) in bands" value="{{obj.value}}"><span class="resistor-color-label" ng-class="color">{{obj.label}}</span></md-radio-button>
                 </md-radio-group>
             </div>
             <div flex ng-show="numberOfBands>4">
-                <p>Selected Value: <span class="radioValue">{{ resistor.first }}</span></p>
-                <md-radio-group ng-model="resistor.first">
-                    <md-radio-button ng-repeat="(color, value) in bands" value="{{value}}"><span class="resistor-color-label" ng-class="color">{{value}}</span></md-radio-button>
+                <p>Third band</p>
+                <md-radio-group ng-model="resistor.third">
+                    <md-radio-button ng-repeat="(color, obj) in bands" value="{{obj.value}}"><span class="resistor-color-label" ng-class="color">{{obj.label}}</span></md-radio-button>
                 </md-radio-group>
             </div>
             <div flex>
-                <p>Selected Value: <span class="radioValue">{{ resistor.first }}</span></p>
-                <md-radio-group ng-model="resistor.first">
-                    <md-radio-button ng-repeat="(color, value) in bands" value="{{value}}"><span class="resistor-color-label" ng-class="color">{{value}}</span></md-radio-button>
+                <p>Multiplier band</p>
+                <md-radio-group ng-model="resistor.multiplier">
+                    <md-radio-button ng-repeat="(color, obj) in multipliers" value="{{obj.value}}"><span class="resistor-color-label" ng-class="color" ng-bind-html="obj.label"></span></md-radio-button>
+                </md-radio-group>
+            </div>
+            <div flex>
+                <p>Tolerance band</p>
+                <md-radio-group ng-model="resistor.tolerance">
+                    <md-radio-button ng-repeat="(color, obj) in tolerances" value="{{obj.value}}"><span class="resistor-color-label" ng-class="color" ng-bind-html="obj.label"></span></md-radio-button>
                 </md-radio-group>
             </div>
         </div>

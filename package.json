@@ -15,7 +15,7 @@
     "README.md",
     "LICENSE.txt"
   ],
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "https://bitbucket.org/dennisschr/resistor-calculator",
   "repository": {
     "type": "git",

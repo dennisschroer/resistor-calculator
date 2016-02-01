@@ -1,12 +1,15 @@
 angular.module("resistor-calculator").controller("MainController", ["$scope", "$sce", function ($scope, $sce) {
     $scope.resistance = function(){
         if($scope.numberOfBands == 4){
-            return (parseInt($scope.resistor.first)*10 + parseInt($scope.resistor.second)) * parseInt($scope.resistor.multiplier);
+            return (parseInt($scope.resistor.first)*10 + parseInt($scope.resistor.second)) * parseFloat($scope.resistor.multiplier);
         }else{
-            return (parseInt($scope.resistor.first)*100 + parseInt($scope.resistor.second)*10 + parseInt($scope.resistor.third)) * parseInt($scope.resistor.multiplier);
+            return (parseInt($scope.resistor.first)*100 + parseInt($scope.resistor.second)*10 + parseInt($scope.resistor.third)) * parseFloat($scope.resistor.multiplier);
         }
     };
 
+    $scope.tolerance = function(){
+        return $scope.resistor.tolerance;
+    };
 
     $scope.bands = {
         black: {

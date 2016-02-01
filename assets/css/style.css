@@ -69,8 +69,6 @@ a.label:focus {
 .resistor-color-label {
   display: inline-block;
   width: 80px;
-  /*padding-left: 40px;
-  padding-right: 40px;*/
 }
 .resistor-color-dark-color {
   color: #555555;
@@ -187,4 +185,8 @@ a.resistor-color-label.gold:focus {
 a.resistor-color-label.silver:hover,
 a.resistor-color-label.silver:focus {
   color: #555555;
+}
+footer {
+  width: 100%;
+  text-align: center;
 }

@@ -24,8 +24,9 @@
         </div>
     </md-toolbar>
     <md-content layout="column" layout-fill layout-padding flex id="content">
-        <div layout="row">
-            <h1>Resistance: {{resistance()}} &#8486;</h1>
+        <div layout="column">
+            <h1 class="md-display-1">Resistance: {{resistance()}} &#8486;</h1>
+            <h3 class="md-subhead">Tolerance: &plusmn; {{tolerance()}}%</h3>
         </div>
         <div layout="row">
             <md-input-container class="md-block" flex>
@@ -69,6 +70,9 @@
                 </md-radio-group>
             </div>
         </div>
+        <footer>
+            Developed by Dennis Schroer
+        </footer>
     </md-content>
 </div>
 </div>

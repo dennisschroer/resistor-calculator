@@ -1,6 +1,6 @@
 {
   "name": "resistor-calculator",
-  "description": "Simple calculator for the color codes of resistors.",
+  "description": "Simple calculator for resistor color codes and the resistor values.",
   "author": "Dennis Schroer <dev@dennisschroer.nl> (http://dennisschroer.nl)",
   "keywords": [
     "resistor",
@@ -11,20 +11,25 @@
     "app",
     "index.html",
     "index.tmpl.html",
-    "bower.json",
     "README.md",
     "LICENSE.txt"
   ],
   "version": "0.2.0",
-  "homepage": "https://bitbucket.org/dennisschr/resistor-calculator",
+  "homepage": "https://github.com/denniss17/resistor-calculator",
   "repository": {
     "type": "git",
-    "url": "git@bitbucket.org:dennisschr/resistor-calculator.git"
+    "url": "git@github.com:denniss17/resistor-calculator.git"
   },
   "devDependencies": {
     "grunt": "^0.4.5",
     "grunt-contrib-jshint": "^0.12.0",
     "grunt-contrib-less": "^1.1.0",
     "grunt-replace": "^0.11.0"
+  },
+  "dependencies": {
+    "angular": "^1.6.6",
+    "angular-animate": "^1.6.6",
+    "angular-aria": "^1.6.6",
+    "angular-material": "^1.1.5"
   }
 }

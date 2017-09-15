@@ -1,4 +1,4 @@
-angular.module('resistorCalculator').filter('numberFormat', function() {
+export default function() {
   return function(input) {
     if (angular.isNumber(input)) {
       if (input >= 1000000) {
@@ -13,4 +13,4 @@ angular.module('resistorCalculator').filter('numberFormat', function() {
     }
     return input ? '\u2713' : '\u2718';
   };
-});
+};

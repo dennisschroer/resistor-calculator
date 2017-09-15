@@ -1,4 +1,4 @@
-angular.module("resistorCalculator").controller("MainController", ["$scope", "$sce", function($scope, $sce) {
+export default ["$scope", "$sce", function($scope, $sce) {
   $scope.resistance = function() {
     if ($scope.numberOfBands === 4) {
       return (parseInt($scope.resistor.first) * 10 + parseInt($scope.resistor.second)) * parseFloat($scope.resistor.multiplier);
@@ -141,4 +141,4 @@ angular.module("resistorCalculator").controller("MainController", ["$scope", "$s
     multiplier: 100,
     tolerance: 5
   };
-}]);
+}];

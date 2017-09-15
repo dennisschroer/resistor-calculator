@@ -21,10 +21,12 @@
     "url": "git@github.com:denniss17/resistor-calculator.git"
   },
   "devDependencies": {
+    "clean-webpack-plugin": "^0.1.16",
     "grunt": "^0.4.5",
     "grunt-contrib-jshint": "^0.12.0",
     "grunt-contrib-less": "^1.1.0",
-    "grunt-replace": "^0.11.0"
+    "grunt-replace": "^0.11.0",
+    "webpack": "^3.6.0"
   },
   "dependencies": {
     "angular": "^1.6.6",

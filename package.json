@@ -15,7 +15,9 @@
     "LICENSE.txt"
   ],
   "scripts": {
-    "build": "webpack"
+    "build": "NODE_ENV=production webpack",
+    "start": "webpack-dev-server --open",
+    "watch": "webpack --watch"
   },
   "version": "0.3.0",
   "homepage": "https://github.com/denniss17/resistor-calculator",
@@ -31,11 +33,13 @@
     "clean-webpack-plugin": "^0.1.16",
     "css-loader": "^0.28.7",
     "extract-text-webpack-plugin": "^3.0.0",
+    "file-loader": "^0.11.2",
     "html-webpack-plugin": "^2.30.1",
     "less": "^2.7.2",
     "less-loader": "^4.0.5",
     "style-loader": "^0.18.2",
     "uglifyjs-webpack-plugin": "^0.4.6",
-    "webpack": "^3.6.0"
+    "webpack": "^3.6.0",
+    "webpack-dev-server": "^2.8.2"
   }
 }

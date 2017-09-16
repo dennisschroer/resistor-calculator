@@ -7,13 +7,16 @@
     "calculator"
   ],
   "files": [
-    "assets",
-    "app",
-    "index.html",
-    "index.tmpl.html",
+    "dist",
+    "src",
+    "webpack.config.js",
+    "yarn.lock",
     "README.md",
     "LICENSE.txt"
   ],
+  "scripts": {
+    "build": "webpack"
+  },
   "version": "0.2.0",
   "homepage": "https://github.com/denniss17/resistor-calculator",
   "repository": {
@@ -23,13 +26,12 @@
   "devDependencies": {
     "clean-webpack-plugin": "^0.1.16",
     "css-loader": "^0.28.7",
+    "extract-text-webpack-plugin": "^3.0.0",
     "less": "^2.7.2",
     "less-loader": "^4.0.5",
     "style-loader": "^0.18.2",
     "uglifyjs-webpack-plugin": "^0.4.6",
-    "webpack": "^3.6.0"
-  },
-  "dependencies": {
+    "webpack": "^3.6.0",
     "angular": "^1.6.6",
     "angular-animate": "^1.6.6",
     "angular-aria": "^1.6.6",

@@ -26,9 +26,10 @@
     </md-toolbar>
     <md-content layout="column" layout-padding flex>
         <div layout="column">
-            <h1 class="md-display-1">Resistance: {{resistance() | numberFormat}} &#8486;</h1>
-
-            <h3 class="md-subhead">Tolerance: &plusmn; {{tolerance()}}%</h3>
+            <h1 class="md-display-1">Resistance: {{resistance() | numberFormat}} &#8486; &plusmn; {{tolerance()}}%</h1>
+            <md-switch ng-model="numberOfBands" ng-true-value="5" ng-false-value="4" aria-label="Number of bands">
+                Use 5 bands
+            </md-switch>
         </div>
         <div layout="row">
             <div class="resistor" ng-class="'resistor--' + numberOfBands">
@@ -44,19 +45,6 @@
                 <div class="resistor-band resistor-band--tolerance"
                      ng-class="'resistor-band--' + resistor.tolerance.color"></div>
             </div>
-        </div>
-        <div layout="row">
-            {{resistor}}
-        </div>
-        <div layout="row">
-            <md-input-container class="md-block" flex>
-                <label>Number of bands</label>
-                <md-select ng-model="numberOfBands">
-                    <md-option value="4">4</md-option>
-                    <md-option value="5">5</md-option>
-                </md-select>
-            </md-input-container>
-
         </div>
         <div layout="row" layout-wrap>
             <div flex flex-xs="50">

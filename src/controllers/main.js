@@ -9,9 +9,9 @@ export default ["$scope", "$sce", function($scope, $sce) {
 
   $scope.resistance = function() {
     if ($scope.numberOfBands === 4) {
-      return (parseInt($scope.resistor.first.value) * 10 + parseInt($scope.resistor.second.value)) * parseFloat($scope.resistor.multiplier.value);
+      return ($scope.resistor.first.value * 10 + $scope.resistor.second.value) * $scope.resistor.multiplier.value;
     } else {
-      return (parseInt($scope.resistor.first.value) * 100 + parseInt($scope.resistor.second.value) * 10 + parseInt($scope.resistor.third.value)) * parseFloat($scope.resistor.multiplier.value);
+      return ($scope.resistor.first.value * 100 + $scope.resistor.second.value * 10 + $scope.resistor.third.value) * $scope.resistor.multiplier.value;
     }
   };
 

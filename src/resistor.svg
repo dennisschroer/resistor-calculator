@@ -1,0 +1,23 @@
+<svg width="425" height="72" xmlns="http://www.w3.org/2000/svg">
+ <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
+
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="74" width="427" y="-1" x="-1"/>
+  <g display="none" overflow="visible" y="0" x="0" height="100%" width="100%" id="canvasGrid">
+   <rect fill="url(#gridpattern)" stroke-width="0" y="0" x="0" height="100%" width="100%"/>
+  </g>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <rect id="svg_2" height="8" width="420.947376" y="31.006378" x="1.530876" stroke-width="0" stroke="#666666" fill="#e5e5e5"/>
+  <rect id="svg_3" height="3.789475" width="419.930431" y="35.216911" x="2.057192" stroke-width="0" stroke="#666666" fill="#cccccc"/>
+  <rect id="svg_1" height="57.050839" width="180.315795" y="7.077329" x="126.913346" stroke-width="1.5" stroke="#666666" fill="#d6d1b3"/>
+  <rect id="svg_27" height="0.71426" width="9.489448" y="11.404651" x="132.749376" fill-opacity="null" stroke-opacity="null" stroke-width="0" stroke="#666666" fill="#d6d1b3"/>
+  <path id="svg_36" d="m127.02655,6.705447l8.52774,-5.283394l12.058548,0l8.523346,5.283394l0,7.472749l-8.523346,5.283455l-12.058548,0l-8.52774,-5.283455l0,-7.472749z" fill-opacity="null" stroke-opacity="null" stroke-width="1.5" stroke="#666666" fill="#d6d1b3"/>
+  <path id="svg_38" d="m127.312256,56.991142l8.52774,-5.283386l12.058548,0l8.523346,5.283386l0,7.472755l-8.523346,5.283463l-12.058548,0l-8.52774,-5.283463l0,-7.472755z" fill-opacity="null" stroke-opacity="null" stroke-width="1.5" stroke="#666666" fill="#d6d1b3"/>
+  <path id="svg_39" d="m277.883453,6.705447l8.52774,-5.283394l12.058533,0l8.523376,5.283394l0,7.472749l-8.523376,5.283455l-12.058533,0l-8.52774,-5.283455l0,-7.472749z" fill-opacity="null" stroke-opacity="null" stroke-width="1.5" stroke="#666666" fill="#d6d1b3"/>
+  <path id="svg_40" d="m278.169189,56.705406l8.52774,-5.283401l12.058533,0l8.523376,5.283401l0,7.472755l-8.523376,5.283463l-12.058533,0l-8.52774,-5.283463l0,-7.472755z" fill-opacity="null" stroke-opacity="null" stroke-width="1.5" stroke="#666666" fill="#d6d1b3"/>
+  <rect id="svg_37" height="55.907983" width="178.601525" y="7.648756" x="127.770478" stroke-width="0" stroke="#666666" fill="#d6d1b3"/>
+ </g>
+</svg>

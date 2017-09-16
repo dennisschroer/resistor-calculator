@@ -7,6 +7,13 @@
     <meta name="description" content="Simple calculator for resistor color codes and the resistor values">
     <meta name="author" content="Dennis Schroer">
     <meta name="keywords" content="resistor,calculator,calculation,resistance,color code,online">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-2257740986863287",
+        enable_page_level_ads: true
+      });
+    </script>
 </head>
 <body layout="column" style="height: 100%">
 <div ng-controller="MainController" layout="column" ng-cloak style="height: 100%">
@@ -19,55 +26,66 @@
     </md-toolbar>
     <md-content layout="column" layout-padding flex>
         <div layout="column">
-            <h1 class="md-display-1">Resistance: {{resistance() | numberFormat}} &#8486;</h1>
-
-            <h3 class="md-subhead">Tolerance: &plusmn; {{tolerance()}}%</h3>
+            <h1 class="md-display-1">Resistance: {{resistance() | numberFormat}} &#8486; &plusmn; {{tolerance()}}%</h1>
+            <md-switch ng-model="numberOfBands" ng-true-value="5" ng-false-value="4" aria-label="Number of bands">
+                Use 5 bands
+            </md-switch>
         </div>
         <div layout="row">
-            <md-input-container class="md-block" flex>
-                <label>Number of bands</label>
-                <md-select ng-model="numberOfBands">
-                    <md-option value="4">4</md-option>
-                    <md-option value="5">5</md-option>
-                </md-select>
-            </md-input-container>
-
+            <div class="resistor" ng-class="'resistor--' + numberOfBands">
+                <img class="resistor-image" src="resistor.svg"/>
+                <div class="resistor-band resistor-band--first"
+                     ng-class="'resistor-band--' + resistor.first.color"></div>
+                <div class="resistor-band resistor-band--second"
+                     ng-class="'resistor-band--' + resistor.second.color"></div>
+                <div class="resistor-band resistor-band--third" ng-class="'resistor-band--' + resistor.third.color"
+                     ng-show="numberOfBands>4"></div>
+                <div class="resistor-band resistor-band--multiplier"
+                     ng-class="'resistor-band--' + resistor.multiplier.color"></div>
+                <div class="resistor-band resistor-band--tolerance"
+                     ng-class="'resistor-band--' + resistor.tolerance.color"></div>
+            </div>
         </div>
         <div layout="row" layout-wrap>
             <div flex flex-xs="50">
                 <p>First band</p>
                 <md-radio-group ng-model="resistor.first">
-                    <md-radio-button ng-repeat="(color, obj) in bands" value="{{obj.value}}"><span
-                                class="resistor-color-label" ng-class="color">{{obj.label}}</span></md-radio-button>
+                    <md-radio-button ng-repeat="band in bands" ng-value="band"><span
+                                class="resistor-color-label" ng-class="'resistor-color-label--' + band.color">{{band.label}}</span>
+                    </md-radio-button>
                 </md-radio-group>
             </div>
             <div flex flex-xs="50">
                 <p>Second band</p>
                 <md-radio-group ng-model="resistor.second">
-                    <md-radio-button ng-repeat="(color, obj) in bands" value="{{obj.value}}"><span
-                                class="resistor-color-label" ng-class="color">{{obj.label}}</span></md-radio-button>
+                    <md-radio-button ng-repeat="band in bands" ng-value="band"><span
+                                class="resistor-color-label" ng-class="'resistor-color-label--' + band.color">{{band.label}}</span>
+                    </md-radio-button>
                 </md-radio-group>
             </div>
             <div flex flex-xs="50" ng-show="numberOfBands>4">
                 <p>Third band</p>
                 <md-radio-group ng-model="resistor.third">
-                    <md-radio-button ng-repeat="(color, obj) in bands" value="{{obj.value}}"><span
-                                class="resistor-color-label" ng-class="color">{{obj.label}}</span></md-radio-button>
+                    <md-radio-button ng-repeat="band in bands" ng-value="band"><span
+                                class="resistor-color-label" ng-class="'resistor-color-label--' + band.color">{{band.label}}</span>
+                    </md-radio-button>
                 </md-radio-group>
             </div>
             <div flex flex-xs="50">
                 <p>Multiplier band</p>
                 <md-radio-group ng-model="resistor.multiplier">
-                    <md-radio-button ng-repeat="(color, obj) in multipliers" value="{{obj.value}}"><span
-                                class="resistor-color-label" ng-class="color" ng-bind-html="obj.label"></span>
+                    <md-radio-button ng-repeat="multiplier in multipliers" ng-value="multiplier"><span
+                                class="resistor-color-label" ng-class="'resistor-color-label--' + multiplier.color"
+                                ng-bind-html="multiplier.label"></span>
                     </md-radio-button>
                 </md-radio-group>
             </div>
             <div flex flex-xs="50">
                 <p>Tolerance band</p>
                 <md-radio-group ng-model="resistor.tolerance">
-                    <md-radio-button ng-repeat="(color, obj) in tolerances" value="{{obj.value}}"><span
-                                class="resistor-color-label" ng-class="color" ng-bind-html="obj.label"></span>
+                    <md-radio-button ng-repeat="tolerance in tolerances" ng-value="tolerance"><span
+                                class="resistor-color-label" ng-class="'resistor-color-label--' + tolerance.color"
+                                ng-bind-html="tolerance.label"></span>
                     </md-radio-button>
                 </md-radio-group>
             </div>

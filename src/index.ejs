@@ -7,7 +7,7 @@
     <meta name="description" content="Simple calculator for resistor color codes and the resistor values">
     <meta name="author" content="Dennis Schroer">
     <meta name="keywords" content="resistor,calculator,calculation,resistance,color code,online">
-<link href="vendor.css" rel="stylesheet"><link href="app.css" rel="stylesheet"></head>
+</head>
 <body layout="column" style="height: 100%">
 <div ng-controller="MainController" layout="column" ng-cloak style="height: 100%">
     <md-toolbar layout="row">
@@ -73,7 +73,7 @@
             </div>
         </div>
         <footer>
-            Version 0.2.0 - Developed by Dennis Schroer
+            Version <%= htmlWebpackPlugin.options.version %> - Developed by Dennis Schroer
         </footer>
     </md-content>
 </div>
@@ -93,5 +93,5 @@
   ga('create', 'UA-46591816-2', 'auto');
   ga('send', 'pageview');
 </script>
-<script type="text/javascript" src="vendor.js"></script><script type="text/javascript" src="app.js"></script></body>
+</body>
 </html>

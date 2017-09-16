@@ -2,7 +2,9 @@ const path = require('path');
 const webpack = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const packageJson = require('./package.json');
 
 module.exports = {
   entry: {
@@ -15,17 +17,19 @@ module.exports = {
     path: path.resolve(__dirname, 'dist')
   },
   plugins: [
-    new CleanWebpackPlugin(['dist'], {
-      exclude: ['index.html']
-    }),
+    new CleanWebpackPlugin(['dist']),
     new webpack.optimize.CommonsChunkPlugin({
-      name: "vendor",
+      name: 'vendor',
       minChunks: Infinity
     }),
     new UglifyJSPlugin({
       sourceMap: true
     }),
-    new ExtractTextPlugin('[name].css')
+    new ExtractTextPlugin('[name].css'),
+    new HtmlWebpackPlugin({
+      template: 'src/index.ejs',
+      version: packageJson.version
+    })
   ],
   module: {
     rules: [

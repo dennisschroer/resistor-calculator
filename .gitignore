@@ -1,5 +1,2 @@
 node_modules
-dist/app.js
-dist/app.js.map
-dist/vendor.js
-dist/vendor.js.map
+dist

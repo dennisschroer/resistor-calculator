@@ -1,6 +1,6 @@
 {
   "name": "resistor-calculator",
-  "description": "Simple calculator for resistor color codes and the resistor values.",
+  "description": "Simple calculator for resistor color codes and the resistor values",
   "author": "Dennis Schroer <dev@dennisschroer.nl> (http://dennisschroer.nl)",
   "keywords": [
     "resistor",
@@ -22,10 +22,11 @@
   },
   "devDependencies": {
     "clean-webpack-plugin": "^0.1.16",
-    "grunt": "^0.4.5",
-    "grunt-contrib-jshint": "^0.12.0",
-    "grunt-contrib-less": "^1.1.0",
-    "grunt-replace": "^0.11.0",
+    "css-loader": "^0.28.7",
+    "less": "^2.7.2",
+    "less-loader": "^4.0.5",
+    "style-loader": "^0.18.2",
+    "uglifyjs-webpack-plugin": "^0.4.6",
     "webpack": "^3.6.0"
   },
   "dependencies": {

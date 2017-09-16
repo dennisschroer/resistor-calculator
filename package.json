@@ -1,30 +1,41 @@
 {
   "name": "resistor-calculator",
-  "description": "Simple calculator for the color codes of resistors.",
+  "description": "Simple calculator for resistor color codes and the resistor values",
   "author": "Dennis Schroer <dev@dennisschroer.nl> (http://dennisschroer.nl)",
   "keywords": [
     "resistor",
     "calculator"
   ],
   "files": [
-    "assets",
-    "app",
-    "index.html",
-    "index.tmpl.html",
-    "bower.json",
+    "dist",
+    "src",
+    "webpack.config.js",
+    "yarn.lock",
     "README.md",
     "LICENSE.txt"
   ],
-  "version": "0.2.0",
-  "homepage": "https://bitbucket.org/dennisschr/resistor-calculator",
+  "scripts": {
+    "build": "webpack"
+  },
+  "version": "0.3.0",
+  "homepage": "https://github.com/denniss17/resistor-calculator",
   "repository": {
     "type": "git",
-    "url": "git@bitbucket.org:dennisschr/resistor-calculator.git"
+    "url": "git@github.com:denniss17/resistor-calculator.git"
   },
   "devDependencies": {
-    "grunt": "^0.4.5",
-    "grunt-contrib-jshint": "^0.12.0",
-    "grunt-contrib-less": "^1.1.0",
-    "grunt-replace": "^0.11.0"
+    "angular": "^1.6.6",
+    "angular-animate": "^1.6.6",
+    "angular-aria": "^1.6.6",
+    "angular-material": "^1.1.5",
+    "clean-webpack-plugin": "^0.1.16",
+    "css-loader": "^0.28.7",
+    "extract-text-webpack-plugin": "^3.0.0",
+    "html-webpack-plugin": "^2.30.1",
+    "less": "^2.7.2",
+    "less-loader": "^4.0.5",
+    "style-loader": "^0.18.2",
+    "uglifyjs-webpack-plugin": "^0.4.6",
+    "webpack": "^3.6.0"
   }
 }

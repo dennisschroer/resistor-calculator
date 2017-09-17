@@ -4,8 +4,12 @@ import tolerances from '../constants/tolerances';
 
 export default ["$scope", "$sce", function($scope, $sce) {
   $scope.bands = bands;
-  $scope.multipliers = multipliers.map(multiplier => Object.assign({}, multiplier, { label: $sce.trustAsHtml(multiplier.label) }));
-  $scope.tolerances = tolerances.map(tolerance => Object.assign({}, tolerance, { label: $sce.trustAsHtml(tolerance.label) }));
+  $scope.multipliers = multipliers.map(function(multiplier) {
+    return Object.assign({}, multiplier, { label: $sce.trustAsHtml(multiplier.label) });
+  });
+  $scope.tolerances = tolerances.map(function(tolerance) {
+    return Object.assign({}, tolerance, { label: $sce.trustAsHtml(tolerance.label) });
+  });
 
   $scope.resistance = function() {
     if ($scope.numberOfBands === 4) {

@@ -5,6 +5,7 @@ import NumberFormatFilter from './filters/number-format';
 
 import 'angular-material/angular-material.css';
 import './app.less';
+import './logo.svg';
 import './resistor.svg';
 
 angular.module('resistorCalculator', ['ngMaterial'])

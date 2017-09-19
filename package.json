@@ -19,7 +19,7 @@
     "start": "webpack-dev-server --open",
     "watch": "webpack --watch"
   },
-  "version": "0.4.0",
+  "version": "0.5.0",
   "homepage": "https://github.com/denniss17/resistor-calculator",
   "repository": {
     "type": "git",

@@ -1,6 +1,8 @@
 @import "labels.less";
 @import "resistor.less";
 
+@accent: #448aff;
+
 @resistor-black: @gray-base;
 @resistor-brown: #966F33;
 @resistor-red: red;
@@ -14,74 +16,134 @@
 @resistor-gold: gold;
 @resistor-silver: silver;
 
-.resistor-color-label {
-  &:extend(.label);
-  display: inline-block;
-  width: 100px;
-  padding: .5em .6em .5em;
-}
+@resistor-button-height: 26px;
 
-.resistor-color-dark-color {
-  color: @label-color-dark;
-  a& {
-    &:hover,
-    &:focus {
-      color: @label-link-hover-color-dark;
-    }
+.resistor-color-radio-button {
+  .md-off, .md-on {
+    display: none;
+  }
+
+  .md-label {
+    margin-left: 0px;
   }
 }
 
-.resistor-color-label--black {
-  .label-variant(@resistor-black);
+.resistor-color-button {
+  //&:extend(.label);
+  box-sizing: content-box;
+  //display: inline-block;
+  //width: 100px;
+  margin-top: 0px;
+  margin-bottom: 6px;
+  height: @resistor-button-height;
+  min-height: @resistor-button-height;
+  line-height: @resistor-button-height;
+  //padding: .5em .6em .5em;
 }
 
-.resistor-color-label--brown {
-  .label-variant(@resistor-brown);
+.resistor-color-button.selected {
+  border: 4px solid @accent;
+  margin-top: -4px;
+  margin-bottom: 2px;
 }
 
-.resistor-color-label--red {
-  .label-variant(@resistor-red);
+// Style added to buttons a light color to make the text darker
+.resistor-color-button--light-text {
+  color: #ffffff;
+  &:hover {
+    color: @gray;
+  }
 }
 
-.resistor-color-label--orange {
-  .label-variant(@resistor-orange);
-  .resistor-color-dark-color;
+.resistor-color-button--black {
+  background-color: @resistor-black;
+  .resistor-color-button--light-text;
+  &.selected{
+    background-color: lighten(@resistor-black, 10%);
+  }
 }
 
-.resistor-color-label--yellow {
-  .label-variant(@resistor-yellow);
-  .resistor-color-dark-color;
+.resistor-color-button--brown {
+  background-color: @resistor-brown;
+  .resistor-color-button--light-text;
+  &.selected{
+    background-color: lighten(@resistor-brown, 10%);
+  }
 }
 
-.resistor-color-label--green {
-  .label-variant(@resistor-green);
+.resistor-color-button--red {
+  background-color: @resistor-red;
+  .resistor-color-button--light-text;
+  &.selected{
+    background-color: lighten(@resistor-red, 10%);
+  }
 }
 
-.resistor-color-label--blue {
-  .label-variant(@resistor-blue);
+.resistor-color-button--orange {
+  background-color: @resistor-orange;
+  &.selected{
+    background-color: lighten(@resistor-orange, 10%);
+  }
 }
 
-.resistor-color-label--violet {
-  .label-variant(@resistor-violet);
+.resistor-color-button--yellow {
+  background-color: @resistor-yellow;
+  &.selected{
+    background-color: lighten(@resistor-yellow, 10%);
+  }
 }
 
-.resistor-color-label--grey {
-  .label-variant(@resistor-grey);
+.resistor-color-button--green {
+  background-color: @resistor-green;
+  .resistor-color-button--light-text;
+  &.selected{
+    background-color: lighten(@resistor-green, 10%);
+  }
 }
 
-.resistor-color-label--white {
-  .label-variant(@resistor-white);
-  .resistor-color-dark-color;
+.resistor-color-button--blue {
+  background-color: @resistor-blue;
+  .resistor-color-button--light-text;
+  &.selected{
+    background-color: lighten(@resistor-blue, 10%);
+  }
 }
 
-.resistor-color-label--gold {
-  .label-variant(@resistor-gold);
-  .resistor-color-dark-color;
+.resistor-color-button--violet {
+  background-color: @resistor-violet;
+  .resistor-color-button--light-text;
+  &.selected{
+    background-color: lighten(@resistor-violet, 10%);
+  }
 }
 
-.resistor-color-label--silver {
-  .label-variant(@resistor-silver);
-  .resistor-color-dark-color;
+.resistor-color-button--grey {
+  background-color: @resistor-grey;
+  .resistor-color-button--light-text;
+  &.selected{
+    background-color: lighten(@resistor-grey, 10%);
+  }
+}
+
+.resistor-color-button--white {
+  background-color: @resistor-white;
+  &.selected{
+    background-color: lighten(@resistor-white, 10%);
+  }
+}
+
+.resistor-color-button--gold {
+  background-color: @resistor-gold;
+  &.selected{
+    background-color: lighten(@resistor-gold, 10%);
+  }
+}
+
+.resistor-color-button--silver {
+  background-color: @resistor-silver;
+  &.selected{
+    background-color: lighten(@resistor-silver, 10%);
+  }
 }
 
 .logo {
@@ -91,8 +153,15 @@
 
 .content {
   width: 100%;
-  max-width: 1280px;
   margin: 0 auto;
+}
+
+.content__resistor {
+  text-align: center;
+}
+
+.content__resistance {
+  text-align: center;
 }
 
 footer {

@@ -10,4 +10,9 @@ import './resistor.svg';
 
 angular.module('resistorCalculator', ['ngMaterial'])
   .controller('MainController', MainController)
-  .filter('numberFormat', NumberFormatFilter);
+  .filter('numberFormat', NumberFormatFilter)
+  .config(['$mdThemingProvider', function($mdThemingProvider) {
+    $mdThemingProvider.theme('default')
+      .primaryPalette('teal')
+      .accentPalette('blue')
+  }]);

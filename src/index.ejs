@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html ng-app="resistorCalculator">
 <head>
-    <title>Resistor calculator</title>
+    <title>Resistor calculator - Calculate color code and resistance</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="initial-scale=1"/>
     <meta name="description" content="Simple calculator for resistor color codes and the resistor values">
@@ -37,113 +37,148 @@
         <div class="content">
             <div class="md-toolbar-tools">
                 <img src="logo.svg" class="logo"/>
-                <h2>Resistor Calculator</h2>
+                <h2>Resistor Calculator </h2>
             </div>
         </div>
     </md-toolbar>
     <md-content layout-padding flex>
         <div class="content" layout="column">
-            <div layout="row">
+            <div layout="row" layout-align="space-around">
                 <p>
-                    Use this tool to convert color codes found on electrical resistors to their corresponding resistor
-                    value.
+                    Convert color codes from resistors to the amount of resistance and vice versa, using this handy tool!
                 </p>
             </div>
-            <div layout="row">
-                <div flex="33" layout="column">
-                    <span class="md-title">Resistance</span>
-                    <span class="md-display-2">{{resistance() | numberFormat}} &#8486;</span>
+            <div layout="row" layout-align="space-around stretch">
+                <div flex="40" class="content__resistor">
+                    <md-card>
+                        <md-card-title>
+                            <md-card-title-text>
+                                <span class="md-headline">Resistor color code</span>
+                                <span class="md-subhead">Select the color code or display the calculated resistor</span>
+                            </md-card-title-text>
+                        </md-card-title>
+                        <md-card-content>
+
+                            <!--<h2 class="md-display-1">Resistor color code</h2>-->
+
+                            <div class="resistor-wrapper" layout="column" layout-align="start center">
+                                <div class="resistor" ng-class="'resistor--' + numberOfBands">
+                                    <img class="resistor-image" src="resistor.svg"/>
+                                    <div class="resistor-band resistor-band--first"
+                                         ng-class="'resistor-band--' + resistor.first.color"></div>
+                                    <div class="resistor-band resistor-band--second"
+                                         ng-class="'resistor-band--' + resistor.second.color"></div>
+                                    <div class="resistor-band resistor-band--third"
+                                         ng-class="'resistor-band--' + resistor.third.color"
+                                         ng-show="numberOfBands>4"></div>
+                                    <div class="resistor-band resistor-band--multiplier"
+                                         ng-class="'resistor-band--' + resistor.multiplier.color"></div>
+                                    <div class="resistor-band resistor-band--tolerance"
+                                         ng-class="'resistor-band--' + resistor.tolerance.color"></div>
+                                </div>
+                                <md-switch ng-model="numberOfBands" ng-true-value="5" ng-false-value="4"
+                                           aria-label="Number of bands">
+                                    Use 5 bands
+                                </md-switch>
+                            </div>
+
+                            <div layout="row">
+                                <div flex flex-xs="50">
+                                    <md-button ng-repeat="band in bands"
+                                               class="resistor-color-button"
+                                               ng-class="[{'selected': resistor.first == band}, 'resistor-color-button--' + band.color]"
+                                               ng-click="resistor.first = band">
+                                        {{band.label}}
+                                    </md-button>
+                                </div>
+
+                                <div flex flex-xs="50">
+                                    <md-button ng-repeat="band in bands"
+                                               class="resistor-color-button"
+                                               ng-class="[{'selected': resistor.second == band}, 'resistor-color-button--' + band.color]"
+                                               ng-click="resistor.second = band">
+                                        {{band.label}}
+                                    </md-button>
+                                </div>
+
+                                <div flex flex-xs="50" ng-show="numberOfBands>4">
+                                    <md-button ng-repeat="band in bands"
+                                               class="resistor-color-button"
+                                               ng-class="[{'selected': resistor.third == band}, 'resistor-color-button--' + band.color]"
+                                               ng-click="resistor.third = band">
+                                        {{band.label}}
+                                    </md-button>
+                                </div>
+
+                                <div flex flex-xs="50">
+                                    <md-button ng-repeat="multiplier in multipliers"
+                                               class="resistor-color-button"
+                                               ng-class="[{'selected': resistor.multiplier == multiplier}, 'resistor-color-button--' + multiplier.color]"
+                                               ng-click="resistor.multiplier = multiplier"
+                                               ng-bind-html="multiplier.label">
+                                    </md-button>
+                                </div>
+
+                                <div flex flex-xs="50">
+                                    <md-button ng-repeat="tolerance in tolerances"
+                                               class="resistor-color-button"
+                                               ng-class="[{'selected': resistor.tolerance == tolerance}, 'resistor-color-button--' + tolerance.color]"
+                                               ng-click="resistor.tolerance = tolerance"
+                                               ng-bind-html="tolerance.label">
+                                    </md-button>
+                                </div>
+                            </div>
+                        </md-card-content>
+                    </md-card>
                 </div>
-                <div flex="33" layout="column">
-                    <span class="md-title">Tolerance</span>
-                    <span class="md-display-2">&plusmn; {{tolerance()}}%</span>
-                </div>
-                <div flex="33" layout="column">
-                    <span class="md-title">Preview</span>
-                    <div class="resistor" ng-class="'resistor--' + numberOfBands">
-                        <img class="resistor-image" src="resistor.svg"/>
-                        <div class="resistor-band resistor-band--first"
-                             ng-class="'resistor-band--' + resistor.first.color"></div>
-                        <div class="resistor-band resistor-band--second"
-                             ng-class="'resistor-band--' + resistor.second.color"></div>
-                        <div class="resistor-band resistor-band--third"
-                             ng-class="'resistor-band--' + resistor.third.color"
-                             ng-show="numberOfBands>4"></div>
-                        <div class="resistor-band resistor-band--multiplier"
-                             ng-class="'resistor-band--' + resistor.multiplier.color"></div>
-                        <div class="resistor-band resistor-band--tolerance"
-                             ng-class="'resistor-band--' + resistor.tolerance.color"></div>
-                    </div>
-                    <md-switch ng-model="numberOfBands" ng-true-value="5" ng-false-value="4"
-                               aria-label="Number of bands">
-                        Use 5 bands
-                    </md-switch>
+
+                <div flex="40" class="content__resistance">
+                    <md-card layout-fill>
+                        <md-card-title>
+                            <md-card-title-text>
+                                <span class="md-headline">Resistance</span>
+                                <span class="md-subhead">Enter the desired resistance or view the calculated value</span>
+                            </md-card-title-text>
+                        </md-card-title>
+                        <md-card-content layout-fill>
+                            <div layout="row" layout-align="center">
+                                <div flex="33" layout="column">
+                                    <span class="md-title">Resistance</span>
+                                    <span class="md-display-2">{{resistance() | numberFormat}} &#8486;</span>
+                                </div>
+                                <div flex="33" layout="column">
+                                    <span class="md-title">Tolerance</span>
+                                    <span class="md-display-2">&plusmn; {{tolerance()}}%</span>
+                                </div>
+                            </div>
+                        </md-card-content>
+                    </md-card>
                 </div>
             </div>
 
-            <div layout="row" layout-wrap>
-                <div flex flex-xs="50">
-                    <p>First band</p>
-                    <md-radio-group ng-model="resistor.first">
-                        <md-radio-button ng-repeat="band in bands" ng-value="band"><span
-                                    class="resistor-color-label" ng-class="'resistor-color-label--' + band.color">{{band.label}}</span>
-                        </md-radio-button>
-                    </md-radio-group>
+            <div layout="row" layout-align="space-around">
+                <div flex="70">
+                    <div layout="column">
+                        <h1 class="md-title">How does it work?</h1>
+                        <p>
+                            Each resistor is decorated with 4 or 5 bands. The first two or three bands determine respectively
+                            the first two or three digits of the amount of resistance. Each color here represents a certain
+                            digit. The following digit then tells by which factor of 10 the obtained number should be
+                            multiplied.
+                        </p>
+                        <p>
+                            For example, a brown band (1) followed by a black band (0) and a red band (2) represents the value
+                            10 * 10 ^ 2 = 1000 &ohm;
+                        </p>
+                        <p>
+                            The last band encodes the tolerance of the resistor. This can be considered as the "accuracy" of the
+                            resistor.
+                            Due to temperature and aging, the resistance is not always exactly as stated. For example, the
+                            resistance of a resistor with 1000 &ohm; and a tolerance of 10% has
+                            an actual resistance between 900 and 1100 ohms.
+                        </p>
+                    </div>
                 </div>
-                <div flex flex-xs="50">
-                    <p>Second band</p>
-                    <md-radio-group ng-model="resistor.second">
-                        <md-radio-button ng-repeat="band in bands" ng-value="band"><span
-                                    class="resistor-color-label" ng-class="'resistor-color-label--' + band.color">{{band.label}}</span>
-                        </md-radio-button>
-                    </md-radio-group>
-                </div>
-                <div flex flex-xs="50" ng-show="numberOfBands>4">
-                    <p>Third band</p>
-                    <md-radio-group ng-model="resistor.third">
-                        <md-radio-button ng-repeat="band in bands" ng-value="band"><span
-                                    class="resistor-color-label" ng-class="'resistor-color-label--' + band.color">{{band.label}}</span>
-                        </md-radio-button>
-                    </md-radio-group>
-                </div>
-                <div flex flex-xs="50">
-                    <p>Multiplier band</p>
-                    <md-radio-group ng-model="resistor.multiplier">
-                        <md-radio-button ng-repeat="multiplier in multipliers" ng-value="multiplier"><span
-                                    class="resistor-color-label" ng-class="'resistor-color-label--' + multiplier.color"
-                                    ng-bind-html="multiplier.label"></span>
-                        </md-radio-button>
-                    </md-radio-group>
-                </div>
-                <div flex flex-xs="50">
-                    <p>Tolerance band</p>
-                    <md-radio-group ng-model="resistor.tolerance">
-                        <md-radio-button ng-repeat="tolerance in tolerances" ng-value="tolerance"><span
-                                    class="resistor-color-label" ng-class="'resistor-color-label--' + tolerance.color"
-                                    ng-bind-html="tolerance.label"></span>
-                        </md-radio-button>
-                    </md-radio-group>
-                </div>
-            </div>
-            <div layout="column">
-                <h1 class="md-title">How does it work?</h1>
-                <p>
-                    Each resistor is decorated with 4 or 5 bands. The first two or three bands determine respectively
-                    the first two or three digits of the amount of resistance. Each color here represents a certain
-                    digit. The following digit then tells by which factor of 10 the obtained number should be
-                    multiplied.
-                </p>
-                <p>
-                    For example, a brown band (1) followed by a black band (0) and a red band (2) represents the value
-                    10 * 10 ^ 2 = 1000 &ohm;
-                </p>
-                <p>
-                    The last band encodes the tolerance of the resistor. This can be considered as the "accuracy" of the
-                    resistor.
-                    Due to temperature and aging, the resistance is not always exactly as stated. For example, the
-                    resistance of a resistor with 1000 &ohm; and a tolerance of 10% has
-                    an actual resistance between 900 and 1100 ohms.
-                </p>
             </div>
         </div>
 
